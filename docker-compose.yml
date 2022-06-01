@@ -3,3 +3,6 @@ version: "3.8"
 services:
   foundry.dev:
     build: .
+    command: nodemon $FOUNDRY_FLAGS
+    volumes:
+      - ./:/home/node/foundry

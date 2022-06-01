@@ -3,6 +3,7 @@ pragma solidity 0.8.10;
 
 import "ds-test/test.sol";
 import "./utils/UsingUSDC.sol";
+import "forge-std/console.sol";
 
 contract Adder {
 	uint256 public st;
@@ -73,5 +74,9 @@ contract ContractTest is DSTest, UsingUSDC {
 		mintUsdcTo(to, 50);
 		uint256 balanceDelta = usdc.balanceOf(to) - balancePre;
 		assertEq(balanceDelta, 50);
+	}
+
+	function testForking2() external view {
+		console.log("FORKIIIIING2");
 	}
 }
