@@ -1,0 +1,6 @@
+{
+  "watch": ["lib", "src", "remappings.txt", "foundry.toml"],
+  "ignore": [".vscode/", "cache/", "node_modules/"],
+  "ext": "sol,vy",
+  "exec": "forge test -vv"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "foundry-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "DefiCake <reche@0xb.one>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon",
+    "dev:fork": "nodemon --fork-url $ETH_RPC_URL"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
