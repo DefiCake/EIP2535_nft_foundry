@@ -23,3 +23,11 @@ FOUNDRY_FLAGS="--fork-url https://eth-mainnet.alchemyapi.io/v2/QfzWQxGrh8ORZGyXb
 If you have nodemon already installed as a global:
 
 `nodemon <--args>`
+
+## Maintenance notes
+
+To reenable deleted git submodules, use this example:
+
+`git submodule add --force https://github.com/foundry-rs/forge-std lib/forge-std`
+
+This will redownload and link github submodules
