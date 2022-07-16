@@ -1,5 +1,6 @@
 cache/
 out/
+typechain-types/
 node_modules
 .vscode
 .env

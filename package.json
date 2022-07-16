@@ -1,0 +1,17 @@
+{
+  "name": "foundry-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:DefiCake/foundry-docker-nodemon-boilerplate.git",
+  "author": "DefiCake <reche@0xb.one>",
+  "license": "MIT",
+  "scripts": {
+    "typechain": "forge build && typechain --target ethers-v5 --out-dir typechain-types/ './out/**/*[!.t].sol/*.json'"
+  },
+  "devDependencies": {
+    "@typechain/ethers-v5": "^10.1.0",
+    "ts-node": "^10.8.2",
+    "typechain": "^8.1.0",
+    "typescript": "^4.7.4"
+  }
+}
