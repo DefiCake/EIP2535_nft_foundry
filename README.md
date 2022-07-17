@@ -4,6 +4,10 @@ Small boilerplate repository for developing on Foundry.
 
 It will compile and test your contracts under `src` on save. Happy coding!
 
+# Disclaimer
+
+Foundry is still in a very alpha version so chances are that nothing in here will work in the near future. Bugs are not only probable, they are **guaranteed**. This is not suitable for production.
+
 ## Usage
 
 ### docker-compose
