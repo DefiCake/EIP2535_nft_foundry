@@ -3,7 +3,7 @@ pragma solidity 0.8.10;
 
 import { DSTestPlus } from "./utils/DSTestPlus.sol";
 import { DSInvariantTest } from "./utils/DSInvariantTest.sol";
-import "./utils/UsingDiamondDeployer.sol";
+import "../../scripts/UsingDiamondDeployer.sol";
 
 import { ERC721TokenReceiver } from "../erc721/facets/ERC721Facet.sol";
 import { IERC721 } from "../erc721/interfaces/IERC721.sol";
@@ -60,7 +60,7 @@ contract TestERC721 is DSTestPlus, UsingDiamondDeployer {
 	IERC721 token;
 
 	function setUp() public {
-		(Diamond diamond, DiamondCutFacet cut) = setupDiamond();
+		(Diamond diamond, DiamondCutFacet cut) = setupDiamond(address(this));
 		addERC721Facet(cut, address(new ERC721Facet("TEST_NAME", "TEST_SYMBOL")));
 		addMintRoleFacet(cut, address(new MintRoleFacet()));
 		MintRoleFacet(address(diamond)).setMinter(address(this), true);

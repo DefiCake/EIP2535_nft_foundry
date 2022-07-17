@@ -1,21 +1,24 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import { Diamond } from "../../diamond/Diamond.sol";
-import { DiamondCutFacet, IDiamondCut } from "../../diamond/facets/DiamondCutFacet.sol";
-import { DiamondLoupeSelectors } from "../../diamond/interfaces/IDiamondLoupe.sol";
-import { DiamondLoupeFacet } from "../../diamond/facets/DiamondLoupeFacet.sol";
-import { OwnershipFacet } from "../../diamond/facets/OwnershipFacet.sol";
-import { ERC165Facet } from "../../diamond/facets/ERC165Facet.sol";
+import { Diamond } from "../src/diamond/Diamond.sol";
+import { DiamondCutFacet, IDiamondCut } from "../src/diamond/facets/DiamondCutFacet.sol";
+import { DiamondLoupeSelectors } from "../src/diamond/interfaces/IDiamondLoupe.sol";
+import { DiamondLoupeFacet } from "../src/diamond/facets/DiamondLoupeFacet.sol";
 
-import { ERC721Selectors } from "../../erc721/interfaces/IERC721.sol";
-import { MinterRoleSelectors } from "../../erc721/interfaces/IMinterRole.sol";
-import { ERC173Selectors } from "../../diamond/interfaces/IERC173.sol";
-import { ERC165Selectors } from "../../diamond/interfaces/IERC165.sol";
+import { OwnershipFacet } from "../src/diamond/facets/OwnershipFacet.sol";
+import { ERC165Facet } from "../src/diamond/facets/ERC165Facet.sol";
+import { ERC721Facet } from "../src/erc721/facets/ERC721Facet.sol";
+import { MintRoleFacet } from "../src/erc721/facets/MintRoleFacet.sol";
+
+import { ERC721Selectors } from "../src/erc721/interfaces/IERC721.sol";
+import { MinterRoleSelectors } from "../src/erc721/interfaces/IMinterRole.sol";
+import { ERC173Selectors } from "../src/diamond/interfaces/IERC173.sol";
+import { ERC165Selectors } from "../src/diamond/interfaces/IERC165.sol";
 
 contract UsingDiamondDeployer {
-	function setupDiamond() internal returns (Diamond diamond, DiamondCutFacet) {
-		diamond = new Diamond(address(this), address(new DiamondCutFacet()));
+	function setupDiamond(address deployer) internal returns (Diamond diamond, DiamondCutFacet) {
+		diamond = new Diamond(deployer, address(new DiamondCutFacet()));
 		DiamondCutFacet cut = DiamondCutFacet(address(diamond));
 
 		addLoupeFacet(cut, address(new DiamondLoupeFacet()));
